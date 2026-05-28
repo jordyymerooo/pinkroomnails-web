@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// En producción (Vercel): VITE_API_URL apunta al backend de Railway (ej: https://tu-app.up.railway.app/api)
-// En local: usa /api que Vite redirige automáticamente al backend local
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
