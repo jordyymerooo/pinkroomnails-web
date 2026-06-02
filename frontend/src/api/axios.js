@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  // 👇 AQUÍ ESTÁ LA MAGIA 👇
+  // Vercel usará VITE_API_URL, y en tu PC usará localhost:6000
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:6000/api', 
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
