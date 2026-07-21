@@ -76,13 +76,13 @@ export default function ServicesSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-pink-50 text-pink-500 text-xs font-bold tracking-widest uppercase mb-4">
-             Our Services
+             Nuestros Servicios
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display mb-4">
-            Discover our <span className="text-pink-500">Premium Range</span>
+            Descubre nuestra <span className="text-pink-500">Gama Premium</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Everything you need to make your hands and feet shine. Select a category to see more.
+            Todo lo que necesitas para hacer brillar tus manos y pies. Selecciona una categoría para ver más.
           </p>
         </motion.div>
 
@@ -100,7 +100,7 @@ export default function ServicesSection() {
                 onClick={() => setSelectedCategory(null)} 
                 className="flex items-center gap-2 text-pink-500 hover:text-pink-600 font-bold transition-colors mb-6"
               >
-                <HiArrowLeft /> Back to Categories
+                <HiArrowLeft /> Volver a Categorías
               </button>
               
               <div className="flex items-center gap-4 mb-8">
@@ -190,9 +190,9 @@ export default function ServicesSection() {
                           <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 capitalize mb-2">
                             {category.replace('_', ' ')}
                           </h3>
-                          <p className="text-gray-400 text-sm mb-6">{items.length} Services available</p>
+                          <p className="text-gray-400 text-sm mb-6">{items.length} Servicios disponibles</p>
                           <span className="text-pink-500 font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2">
-                            View Services <HiArrowRight />
+                            Ver Servicios <HiArrowRight />
                           </span>
                         </motion.div>
                       </div>
@@ -221,7 +221,7 @@ export default function ServicesSection() {
                      whileTap={{ scale: 0.95 }}
                      className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-pink-500/20 flex items-center gap-2 mx-auto"
                    >
-                     Book Appointment <HiSparkles />
+                     Reservar Cita <HiSparkles />
                    </motion.button>
                  </Link>
               </div>
