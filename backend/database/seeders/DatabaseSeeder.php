@@ -7,7 +7,7 @@ use App\Models\GalleryImage;
 use App\Models\Schedule;
 use App\Models\Service;
 use App\Models\Setting;
-use App\Models\Testimonial;
+/* Testimonials table was removed in migration */
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -100,46 +100,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($schedules as $schedule) {
             Schedule::create($schedule);
-        }
-
-        // ──────────────────────────────────────────────
-        // Testimonios
-        // ──────────────────────────────────────────────
-        $testimonials = [
-            [
-                'client_name' => 'María García',
-                'content' => '¡Increíble experiencia! Mis uñas quedaron perfectas. El diseño que me hicieron fue exactamente lo que quería. Definitivamente regresaré.',
-                'rating' => 5,
-                'is_visible' => true,
-            ],
-            [
-                'client_name' => 'Ana López',
-                'content' => 'El servicio de pedicure spa es maravilloso. Muy relajante y profesional. Las instalaciones son hermosas y el ambiente muy acogedor.',
-                'rating' => 5,
-                'is_visible' => true,
-            ],
-            [
-                'client_name' => 'Carolina Ruiz',
-                'content' => 'Las uñas acrílicas me duraron más de 3 semanas sin levantarse. Excelente calidad y atención personalizada. ¡Super recomendado!',
-                'rating' => 5,
-                'is_visible' => true,
-            ],
-            [
-                'client_name' => 'Laura Martínez',
-                'content' => 'Me encanta el nail art que hacen aquí. Los diseños son únicos y muy creativos. Siempre recibo muchos cumplidos por mis uñas.',
-                'rating' => 4,
-                'is_visible' => true,
-            ],
-            [
-                'client_name' => 'Sofía Herrera',
-                'content' => 'Excelente atención y puntualidad. El sistema de reservas es muy fácil de usar. Las chicas son muy profesionales y amables.',
-                'rating' => 5,
-                'is_visible' => true,
-            ],
-        ];
-
-        foreach ($testimonials as $testimonial) {
-            Testimonial::create($testimonial);
         }
 
         // ──────────────────────────────────────────────

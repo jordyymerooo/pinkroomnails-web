@@ -1,0 +1,11 @@
+{
+  "name": "pinkroomnails-root",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "cd backend && php artisan serve",
+    "build": "npm run build --prefix frontend"
+  }
+}

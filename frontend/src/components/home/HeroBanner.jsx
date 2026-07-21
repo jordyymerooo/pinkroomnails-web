@@ -39,7 +39,7 @@ export default function HeroBanner() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-4 sm:mb-6"
           >
-            <span className="text-gray-900">Your nails,</span>
+            <span className="text-gray-900">Uñas,</span>
             <br />
             <span className="gradient-text">our</span>
             <br />
