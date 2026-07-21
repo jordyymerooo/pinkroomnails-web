@@ -1,0 +1,47 @@
+name: CI/CD Pipeline - GitHub Pages
+
+# 1. El desarrollador realiza un cambio -> Commit y push o merge a main
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 2. GitHub Actions inicia el pipeline y clona el código
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar entorno Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # 3. Instalación de dependencias
+      - name: Instalación de dependencias
+        working-directory: ./frontend
+        run: npm install
+
+      # 4. Ejecución de pruebas 
+      # (El flag --passWithNoTests evita que falle si aún no has escrito pruebas)
+      - name: Ejecución de pruebas
+        working-directory: ./frontend
+        run: npm test -- --passWithNoTests 
+
+      # 5. Compilación del proyecto (Build)
+      - name: Compilación del proyecto
+        working-directory: ./frontend
+        run: npm run build
+
+      # 6. Despliegue automático en GitHub Pages
+      - name: Despliegue en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/build
