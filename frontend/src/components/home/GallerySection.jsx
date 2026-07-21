@@ -5,7 +5,7 @@ import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 
 export default function GallerySection() {
   const [images, setImages] = useState([]);
-  const [categories, setCategories] = useState([{ value: 'all', label: 'All' }]);
+  const [categories, setCategories] = useState([{ value: 'all', label: 'Todos' }]);
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,8 +14,8 @@ export default function GallerySection() {
     api.get('/gallery').then(res => setImages(res.data)).catch(console.error);
     api.get('/categories').then(res => {
       const dynamicCats = res.data.map(c => ({ value: c.name, label: c.name }));
-      setCategories([{ value: 'all', label: 'All' }, ...dynamicCats]);
-    }).catch(() => setCategories([{ value: 'all', label: 'All' }]));
+      setCategories([{ value: 'all', label: 'Todos' }, ...dynamicCats]);
+    }).catch(() => setCategories([{ value: 'all', label: 'Todos' }]));
   }, []);
 
   const filtered = activeFilter === 'all' ? images : images.filter(img => img.category === activeFilter);
@@ -49,13 +49,13 @@ export default function GallerySection() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center mb-12 flex flex-col items-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-white text-pink-500 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
-            📸 Our Portfolio
+            📸 Nuestro Portafolio
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold font-display mb-4 w-full text-center">
-            Inspiration <span className="text-pink-500">Gallery</span>
+            Galería de <span className="text-pink-500">Inspiración</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg text-center">
-            A showcase of our finest work and latest trends.
+            Una muestra de nuestro mejor trabajo y las últimas tendencias.
           </p>
         </motion.div>
 
@@ -105,11 +105,11 @@ export default function GallerySection() {
                       >
                         <img 
                           src={image.full_url || `/storage/${image.image_path}`} 
-                          alt={image.title || 'Nail Design'}
+                          alt={image.title || 'Diseño de Uñas'}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4">
-                          <p className="text-white font-bold text-xs sm:text-sm truncate">{image.title || 'Premium Design'}</p>
+                          <p className="text-white font-bold text-xs sm:text-sm truncate">{image.title || 'Diseño Premium'}</p>
                           <p className="text-pink-400 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest">{image.category.replace('_', ' ')}</p>
                         </div>
                       </motion.div>
@@ -122,7 +122,7 @@ export default function GallerySection() {
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm border border-pink-100">
                       <span className="text-4xl">📸</span>
                     </div>
-                    <p className="text-gray-400 text-lg">We will upload designs in this category soon</p>
+                    <p className="text-gray-400 text-lg">Pronto subiremos diseños en esta categoría</p>
                   </motion.div>
                 </div>
               )}
@@ -149,7 +149,7 @@ export default function GallerySection() {
                <span className="text-4xl">&times;</span>
             </motion.button>
             <motion.img initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }}
-              src={selectedImage.full_url || `/storage/${selectedImage.image_path}`} alt={selectedImage.title || 'Design'}
+              src={selectedImage.full_url || `/storage/${selectedImage.image_path}`} alt={selectedImage.title || 'Diseño'}
               className="max-w-full max-h-full rounded-2xl object-contain shadow-2xl" />
           </motion.div>
         )}
